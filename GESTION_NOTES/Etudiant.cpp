@@ -24,8 +24,21 @@ void Etudiant::set_matricule(string p) { matricule = p; }
 void Etudiant::set_annee_entree(string p) { annee_entree = p; }
 
 
-void Etudiant::bulletin() {
-	cout << "\nBULLETIN ETUDIANT"<<endl;
-}
+
 
 void Etudiant::ajouter_note(Note* n) { notes.push_back(n); }
+
+
+    // Méthode pour afficher les détails de l'étudiant et ses notes
+    void Etudiant::Bulletin() const {
+        cout << "Nom de la classe : " << nomClasse << " - Niveau : " << niveau << endl ; 
+        cout << "Matricule étudiant : " << matricule << endl ;
+        cout << "Nom étudiant : " << nomEtudiant << endl;
+        cout << "Notes :" << endl;
+        cout << "Matière\tCoefficient\tType note\tNote" << endl;
+        for (const auto& note : Note) {
+            cout << note.matiere << "\t" << note.coefficient << "\t\t" << note.type_Note << "\t\t" << note.note << endl;
+        }
+        cout << "Moyenne : " << calculerMoyenne() << endl;
+    }
+
